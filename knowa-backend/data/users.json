@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1781599876425,
+    "name": "Ram Jain",
+    "email": "Rj@gmail.com",
+    "password": "$2b$10$Tc38wLEgBgKoWXhBauTjWeexYZZ.mJwc0clXeriNerz7T/mskt3RS",
+    "role": "student"
+  },
+  {
+    "id": 1781601914280,
+    "name": "Sejal Jain",
+    "email": "sejal@gmail.com",
+    "password": "$2b$10$OFmpRu6PWR7O8.rZPwapA.5kTyPrp5kxZt0aht8tcnuZZv3LNJTrm",
+    "role": "student"
+  },
+  {
+    "id": 1781679553110,
+    "name": "Diya ",
+    "email": "Dy@gmail.com",
+    "password": "$2b$10$c.w53zZR2zu/L9WUZGPp9uvFl70EhLAT7/grLiUmvNdX5s.V7aIXu",
+    "role": "student"
+  },
+  {
+    "id": 1781687107254,
+    "name": "Sam Kapoor",
+    "email": "Sam@gmail.com",
+    "password": "$2b$10$PTaCLA/sGnU6gNMWAob6w.vZZSXn4KUCrV8AfL06J2Muj9hVXbIrG",
+    "role": "student"
+  },
+  {
+    "id": 1781771942101,
+    "name": "Rudransh",
+    "email": "RC@gmail.com",
+    "password": "$2b$10$HspoBiMvg3z04uoSkhUERuHSpc2qnu.IHEl7TdWoj.dYyefH4KOFS",
+    "role": "student"
+  },
+  {
+    "id": 1783602128055,
+    "name": "Samyak ",
+    "email": "SJ@gmail.com",
+    "password": "$2b$10$a30kE/PT66u4C4Vc5/iMnuZPZbgbxQyN8alfw/1sqzwRAF08GQ2mK",
+    "role": "student"
+  }
+]

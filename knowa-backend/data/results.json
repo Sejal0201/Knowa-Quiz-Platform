@@ -1,0 +1,246 @@
+[
+  {
+    "id": 1781600644382,
+    "quizId": "1",
+    "quizTitle": "Machine Learning Basics Quiz",
+    "studentName": "Ram Jain",
+    "studentEmail": "Rj@gmail.com",
+    "batch": "AI Crew Hype",
+    "score": 1,
+    "total": 8,
+    "accuracy": "12.50",
+    "submittedAt": "2026-06-16T09:04:04.382Z"
+  },
+  {
+    "id": 1781601972075,
+    "quizId": "1781601762909",
+    "quizTitle": "DBMS",
+    "studentName": "Sejal Jain",
+    "studentEmail": "sejal@gmail.com",
+    "batch": "AI Crew Nova",
+    "score": 2,
+    "total": 4,
+    "accuracy": "50.00",
+    "submittedAt": "2026-06-16T09:26:12.075Z"
+  },
+  {
+    "id": 1781611656270,
+    "quizId": "1781601762909",
+    "quizTitle": "DBMS",
+    "studentName": "Ram Jain",
+    "studentEmail": "Rj@gmail.com",
+    "batch": "AI Crew Nova",
+    "score": 2,
+    "total": 4,
+    "accuracy": "50.00",
+    "submittedAt": "2026-06-16T12:07:36.307Z"
+  },
+  {
+    "id": 1781679613318,
+    "quizId": "1781617396876",
+    "quizTitle": "Computer Vision & CNN Quiz ",
+    "studentName": "Diya",
+    "studentEmail": "Dy@gmail.com",
+    "batch": "AI Crew Nexus",
+    "answers": [
+      "As a collection of words",
+      "CNN",
+      "CNNs can automatically learn visual features from images",
+      "To detect important features such as edges, shapes, and patterns in an image",
+      [
+        "Face Recognition in smartphones",
+        "Medical Image Analysis",
+        "Image Search and Photo Tagging"
+      ]
+    ],
+    "score": 2,
+    "total": 4,
+    "accuracy": "50.00",
+    "submittedAt": "2026-06-17T07:00:13.318Z"
+  },
+  {
+    "id": 1781687183582,
+    "quizId": "1781617396876",
+    "quizTitle": "Computer Vision & CNN Quiz ",
+    "studentName": "Sam Kapoor",
+    "studentEmail": "Sam@gmail.com",
+    "batch": "AI Crew Nova",
+    "answers": [
+      "As a collection of pixels and numerical values",
+      "I would love to create a project ",
+      "CNNs can automatically learn visual features from images",
+      "To store images permanently",
+      [
+        "Face Recognition in smartphones",
+        "Medical Image Analysis",
+        "Image Search and Photo Tagging"
+      ]
+    ],
+    "score": 2,
+    "total": 4,
+    "accuracy": "50.00",
+    "submittedAt": "2026-06-17T09:06:23.582Z"
+  },
+  {
+    "id": 1781695763708,
+    "quizId": "1781617396876",
+    "quizTitle": "Computer Vision & CNN Quiz ",
+    "studentName": "Ram Jain",
+    "studentEmail": "Rj@gmail.com",
+    "batch": "AI Crew Hype",
+    "answers": [
+      "As a collection of words",
+      "YEs",
+      "CNNs can automatically learn visual features from images",
+      "To detect important features such as edges, shapes, and patterns in an image",
+      [
+        "Face Recognition in smartphones",
+        "Medical Image Analysis",
+        "Image Search and Photo Tagging"
+      ]
+    ],
+    "score": 3,
+    "total": 5,
+    "accuracy": "60.00",
+    "submittedAt": "2026-06-17T11:29:23.709Z"
+  },
+  {
+    "id": 1781696424772,
+    "quizId": "1781617396876",
+    "quizTitle": "Computer Vision & CNN Quiz ",
+    "studentName": "Ram Jain",
+    "studentEmail": "Rj@gmail.com",
+    "batch": "AI Crew Hype",
+    "answers": [
+      "As a collection of pixels and numerical values",
+      "YEs",
+      "CNNs can automatically learn visual features from images",
+      "To detect important features such as edges, shapes, and patterns in an image",
+      [
+        "Face Recognition in smartphones",
+        "Medical Image Analysis"
+      ]
+    ],
+    "score": 4,
+    "total": 5,
+    "accuracy": "80.00",
+    "submittedAt": "2026-06-17T11:40:24.772Z"
+  },
+  {
+    "id": 1781716513045,
+    "quizId": "1781617396876",
+    "quizTitle": "Computer Vision & CNN Quiz ",
+    "studentName": "Sam",
+    "studentEmail": "Sam@gmail.com",
+    "batch": "AI Crew Hype",
+    "answers": [
+      "As a collection of words",
+      "Yes",
+      "CNNs can automatically learn visual features from images",
+      [
+        "Face Recognition in smartphones",
+        "Medical Image Analysis",
+        "Self-Driving Cars"
+      ]
+    ],
+    "score": 2,
+    "total": 5,
+    "accuracy": "40.00",
+    "submittedAt": "2026-06-17T17:15:13.046Z"
+  },
+  {
+    "id": 1781772339695,
+    "quizId": "1781617396876",
+    "quizTitle": "Computer Vision & CNN Quiz ",
+    "studentName": "Rudransh",
+    "studentEmail": "RC@gmail.com",
+    "batch": "AI Crew Nova",
+    "answers": [
+      "As a collection of pixels and numerical values",
+      "Yes",
+      "CNNs can automatically learn visual features from images",
+      "To detect important features such as edges, shapes, and patterns in an image",
+      [
+        "Face Recognition in smartphones",
+        "Medical Image Analysis",
+        "Image Search and Photo Tagging"
+      ]
+    ],
+    "score": 4,
+    "total": 5,
+    "accuracy": "80.00",
+    "submittedAt": "2026-06-18T08:45:39.734Z"
+  },
+  {
+    "id": 1781775119173,
+    "quizId": "1781601762909",
+    "quizTitle": "DBMS",
+    "studentName": "Rudransh",
+    "studentEmail": "RC@gmail.com",
+    "batch": "AI Crew Nova",
+    "answers": [
+      "Database Management System",
+      "SQL",
+      "Primary Key",
+      "2NF"
+    ],
+    "score": 4,
+    "total": 4,
+    "accuracy": "100.00",
+    "submittedAt": "2026-06-18T09:31:59.173Z"
+  },
+  {
+    "id": 1781862558497,
+    "quizId": "1781601762909",
+    "quizTitle": "DBMS",
+    "studentName": "Diya ",
+    "studentEmail": "Dy@gmail.com",
+    "batch": "AI Crew Byte",
+    "answers": [
+      "Database Management System",
+      "SQL",
+      "primary key",
+      "2NF"
+    ],
+    "score": 4,
+    "total": 4,
+    "accuracy": "100.00",
+    "submittedAt": "2026-06-19T09:49:18.499Z"
+  },
+  {
+    "id": 1781863126470,
+    "quizId": "1781601762909",
+    "quizTitle": "DBMS",
+    "studentName": "Sam Kapoor",
+    "studentEmail": "Sam@gmail.com",
+    "batch": "AI Crew Byte",
+    "answers": [
+      "Data Backup Management System",
+      "SQL",
+      "Primary Key",
+      "3NF"
+    ],
+    "score": 2,
+    "total": 4,
+    "accuracy": "50.00",
+    "submittedAt": "2026-06-19T09:58:46.470Z"
+  },
+  {
+    "id": 1783602181537,
+    "quizId": "1781601762909",
+    "quizTitle": "DBMS",
+    "studentName": "Samyak ",
+    "studentEmail": "SJ@gmail.com",
+    "batch": "AI Crew Nova",
+    "answers": [
+      "Data Building Management System",
+      "SQL",
+      "Primary key",
+      "2NF"
+    ],
+    "score": 3,
+    "total": 4,
+    "accuracy": "75.00",
+    "submittedAt": "2026-07-09T13:03:01.539Z"
+  }
+]

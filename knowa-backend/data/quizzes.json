@@ -1,0 +1,180 @@
+[
+  {
+    "id": 1781601762909,
+    "title": "DBMS",
+    "description": "DBMS Assessment",
+    "duration": 10,
+    "questions": [
+      {
+        "id": 1781601561627,
+        "questionType": "mcq",
+        "question": "What does DBMS stand for?",
+        "options": [
+          "Data Backup Management System",
+          "Database Management System",
+          "Data Building Management System",
+          "Database Memory System"
+        ],
+        "answer": "Database Management System"
+      },
+      {
+        "id": 1781601656446,
+        "questionType": "text",
+        "question": "Which language is used to interact with databases?",
+        "options": [],
+        "answer": "SQL"
+      },
+      {
+        "id": 1781601683405,
+        "questionType": "text",
+        "question": "Which key uniquely identifies a record in a table?",
+        "options": [],
+        "answer": "Primary Key"
+      },
+      {
+        "id": 1781601737677,
+        "questionType": "mcq",
+        "question": "Which normal form removes partial dependency?",
+        "options": [
+          "1NF",
+          "2NF",
+          "3NF",
+          "BCNF"
+        ],
+        "answer": "2NF"
+      }
+    ],
+    "active": false,
+    "createdAt": "2026-06-16T09:22:42.909Z"
+  },
+  {
+    "id": 1781617396876,
+    "title": "Computer Vision & CNN Quiz ",
+    "description": "Computer Vision & CNN Quiz  Assessment",
+    "duration": 10,
+    "questions": [
+      {
+        "id": 1781615521496,
+        "questionType": "mcq",
+        "question": "How does a computer represent an image?",
+        "options": [
+          "As a collection of pixels and numerical values",
+          "As a collection of words",
+          "As a video file",
+          "As a sound recording"
+        ],
+        "answer": "As a collection of pixels and numerical values"
+      },
+      {
+        "id": 1781616805300,
+        "questionType": "text",
+        "question": "Imagine you are building a CNN-powered application for your school.  What problem would it solve, and how would it use images to make decisions?  Ans in 2–3 sentences.",
+        "options": [],
+        "answer": null
+      },
+      {
+        "id": 1781617031014,
+        "questionType": "mcq",
+        "question": "Why are Convolutional Neural Networks (CNNs) preferred over regular Neural Networks for image-related tasks?",
+        "options": [
+          "CNNs can automatically learn visual features from images",
+          "CNNs use less electricity",
+          "CNNs only work with black-and-white images",
+          "CNNs do not require training"
+        ],
+        "answer": "CNNs can automatically learn visual features from images"
+      },
+      {
+        "id": 1781617190690,
+        "questionType": "mcq",
+        "question": "What is the main purpose of a convolution operation in a CNN?",
+        "options": [
+          "To increase internet speed",
+          "To detect important features such as edges, shapes, and patterns in an image",
+          "To store images permanently",
+          "To compress image files"
+        ],
+        "answer": "To detect important features such as edges, shapes, and patterns in an image"
+      },
+      {
+        "id": 1781617389433,
+        "questionType": "checkbox",
+        "question": "Which of the following are real-world applications of CNNs?",
+        "options": [
+          "Face Recognition in smartphones",
+          "Medical Image Analysis",
+          "Self-Driving Cars",
+          "Image Search and Photo Tagging"
+        ],
+        "answer": "Face Recognition in smartphones, Medical Image Analysis, Self-Driving Cars"
+      }
+    ],
+    "active": true,
+    "createdAt": "2026-06-16T13:43:16.876Z"
+  },
+  {
+    "id": 1781682192232,
+    "title": "Neural Networks Quiz",
+    "description": "Neural Networks Quiz Assessment",
+    "duration": 10,
+    "questions": [
+      {
+        "id": 1781681977480,
+        "questionType": "text",
+        "question": "Modern AI systems such as ChatGPT contain billions of parameters and many neural network layers.  Why do you think Deep Neural Networks are better at solving complex problems than a single Perceptron?",
+        "options": [],
+        "answer": null
+      },
+      {
+        "id": 1781682113256,
+        "questionType": "checkbox",
+        "question": "Which of the following are commonly used Activation Functions?",
+        "options": [
+          "ReLU",
+          "Bluetooth",
+          "Tanh",
+          "Sigmoid"
+        ],
+        "answer": "Tanh , Sigmoid , ReLU"
+      },
+      {
+        "id": 1781682149458,
+        "questionType": "mcq",
+        "question": "Why are Activation Functions important in Neural Networks?",
+        "options": [
+          "They increase internet speed",
+          "They store training data",
+          "They help the network decide whether information should move forward",
+          "They reduce file size"
+        ],
+        "answer": "They help the network decide whether information should move forward"
+      },
+      {
+        "id": 1781682174040,
+        "questionType": "mcq",
+        "question": "What is a Perceptron?",
+        "options": [
+          "A type of database",
+          "The simplest building block of a neural network",
+          "A programming language",
+          "A computer processor"
+        ],
+        "answer": "The simplest building block of a neural network"
+      },
+      {
+        "id": 1781682188719,
+        "questionType": "mcq",
+        "question": "A perceptron receives multiple inputs and then decides whether to activate or not. This process is most similar to:  ",
+        "options": [
+          "Saving a file",
+          "Downloading a video",
+          "Connecting to Wi-Fi",
+          "Making a decision based on available information"
+        ],
+        "answer": "Making a decision based on available information"
+      }
+    ],
+    "active": false,
+    "createdAt": "2026-06-17T07:43:12.232Z"
+  }
+]
