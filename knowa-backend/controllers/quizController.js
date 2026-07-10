@@ -353,14 +353,46 @@ const getActiveQuiz = (req, res) => {
     });
   }
 };
+// const activateQuiz = (req, res) => {
+//   try {
+//     const quizId = Number(req.params.id);
+//     const quizzes = getQuizzes();
+
+//     quizzes.forEach((quiz) => {
+//       quiz.active = false;
+//     });
+
+//     const quiz = quizzes.find((quiz) => quiz.id === quizId);
+
+//     if (!quiz) {
+//       return res.status(404).json({
+//         success: false,
+//         message: "Quiz Not Found",
+//       });
+//     }
+
+//     quiz.active = true;
+
+//     saveQuizzes(quizzes);
+
+//     res.json({
+//       success: true,
+//       message: "Quiz Activated",
+//       quiz,
+//     });
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       message: error.message,
+//     });
+//   }
+// };
+
 const activateQuiz = (req, res) => {
   try {
     const quizId = Number(req.params.id);
-    const quizzes = getQuizzes();
 
-    quizzes.forEach((quiz) => {
-      quiz.active = false;
-    });
+    const quizzes = getQuizzes();
 
     const quiz = quizzes.find((quiz) => quiz.id === quizId);
 
@@ -377,7 +409,7 @@ const activateQuiz = (req, res) => {
 
     res.json({
       success: true,
-      message: "Quiz Activated",
+      message: "Quiz Activated Successfully",
       quiz,
     });
   } catch (error) {
@@ -387,7 +419,6 @@ const activateQuiz = (req, res) => {
     });
   }
 };
-
 const deactivateQuiz = (req, res) => {
   try {
     const quizId = Number(req.params.id);
