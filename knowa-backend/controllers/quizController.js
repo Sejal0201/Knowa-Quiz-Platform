@@ -134,7 +134,7 @@ const updateQuiz = (req, res) => {
 const startQuiz = (req, res) => {
   try {
     const quizId = Number(req.params.id);
-
+    const quizzes = getQuizzes();
     const quiz = quizzes.find((quiz) => quiz.id === quizId);
 
     if (!quiz) {
@@ -175,6 +175,9 @@ const startQuiz = (req, res) => {
 const submitQuiz = (req, res) => {
   try {
     const { quizId, answers, studentName, studentEmail, batch } = req.body;
+
+    const quizzes = getQuizzes();
+
     const quiz = quizzes.find((quiz) => quiz.id == quizId);
 
     if (!quiz) {
@@ -278,13 +281,31 @@ const submitQuiz = (req, res) => {
     });
   }
 };
-const getResults = (req, res) => {
-  const results = getResultsData();
+// const getResults = (req, res) => {
+//   const results = getResultsData();
 
-  res.json({
-    success: true,
-    results,
-  });
+//   res.json({
+//     success: true,
+//     results,
+//   });
+// };
+
+const getResults = (req, res) => {
+  try {
+    const results = getResultsData();
+
+    const latestResults = [...results].reverse();
+
+    res.json({
+      success: true,
+      results: latestResults,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
 };
 
 const viewAccuracy = (req, res) => {
@@ -661,6 +682,7 @@ const getRecentStudents = (req, res) => {
 };
 
 const getAverageMarks = (req, res) => {
+  const results = getResultsData();
   const quizStats = {};
 
   results.forEach((result) => {
