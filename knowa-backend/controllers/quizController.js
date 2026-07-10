@@ -130,7 +130,7 @@ const updateQuiz = (req, res) => {
     });
   }
 };
-const quizzes = getQuizzes();
+
 const startQuiz = (req, res) => {
   try {
     const quizId = Number(req.params.id);
@@ -312,21 +312,39 @@ const viewAccuracy = (req, res) => {
   }
 };
 
+// const getActiveQuiz = (req, res) => {
+//   try {
+//     const quizzes = getQuizzes();
+//     const activeQuiz = quizzes.find((quiz) => quiz.active === true);
+
+//     if (!activeQuiz) {
+//       return res.status(404).json({
+//         success: false,
+//         message: "No Active Quiz",
+//       });
+//     }
+
+//     res.json({
+//       success: true,
+//       quiz: activeQuiz,
+//     });
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       message: error.message,
+//     });
+//   }
+// };
+
 const getActiveQuiz = (req, res) => {
   try {
     const quizzes = getQuizzes();
-    const activeQuiz = quizzes.find((quiz) => quiz.active === true);
 
-    if (!activeQuiz) {
-      return res.status(404).json({
-        success: false,
-        message: "No Active Quiz",
-      });
-    }
+    const activeQuizzes = quizzes.filter((quiz) => quiz.active === true);
 
     res.json({
       success: true,
-      quiz: activeQuiz,
+      quizzes: activeQuizzes,
     });
   } catch (error) {
     res.status(500).json({
@@ -335,7 +353,6 @@ const getActiveQuiz = (req, res) => {
     });
   }
 };
-
 const activateQuiz = (req, res) => {
   try {
     const quizId = Number(req.params.id);
@@ -480,16 +497,20 @@ const getStudentDashboard = (req, res) => {
     const results = getResultsData();
 
     const activeQuiz = quizzes.find((q) => q.active);
-
+    const activeQuizzes = quizzes.filter((quiz) => quiz.active);
     const studentResults = results.filter(
       (result) => result.studentEmail === email,
     );
 
     res.json({
       success: true,
+      // stats: {
+      //   activeQuiz: activeQuiz ? 1 : 0,
+      //   duration: activeQuiz?.duration || 0,
+      //   totalAttempts: studentResults.length,
+      // },
       stats: {
-        activeQuiz: activeQuiz ? 1 : 0,
-        duration: activeQuiz?.duration || 0,
+        activeQuiz: activeQuizzes.length,
         totalAttempts: studentResults.length,
       },
     });
@@ -625,9 +646,7 @@ const getAverageMarks = (req, res) => {
 
   const averages = Object.entries(quizStats).map(([quizTitle, data]) => ({
     quizTitle,
-    averageMarks: (
-      data.totalScore / data.totalStudents
-    ).toFixed(2),
+    averageMarks: (data.totalScore / data.totalStudents).toFixed(2),
     totalMarks: data.totalMarks,
   }));
 

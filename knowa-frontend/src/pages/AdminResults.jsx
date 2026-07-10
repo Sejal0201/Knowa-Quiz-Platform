@@ -99,22 +99,26 @@
 
 // export default AdminResults;
 
-
 import { useEffect, useState } from "react";
 import API from "../api";
-import {
-  Users,
-  Mail,
-  BookOpen,
-  BarChart3,
-} from "lucide-react";
+import { Users, Mail, BookOpen, BarChart3 } from "lucide-react";
 import "../styles/AdminResults.css";
 
 function AdminResults() {
   const [results, setResults] = useState([]);
 
+  // useEffect(() => {
+  //   fetchResults();
+  // }, []);
+
   useEffect(() => {
     fetchResults();
+
+    const interval = setInterval(() => {
+      fetchResults();
+    }, 5000); // every 5 seconds
+
+    return () => clearInterval(interval);
   }, []);
 
   const fetchResults = async () => {
@@ -139,114 +143,66 @@ function AdminResults() {
 
   return (
     <div className="results-page">
-
       <div className="page-header">
-
         <div>
-
-          <span className="section-badge">
-            Results
-          </span>
+          <span className="section-badge">Results</span>
 
           <h1>Student Results</h1>
 
-          <p>
-            View quiz performance batch wise.
-          </p>
-
+          <p>View quiz performance batch wise.</p>
         </div>
-
       </div>
 
-      {Object.entries(groupedResults).map(
-        ([batch, students]) => (
-          <div
-            key={batch}
-            className="batch-result-card"
-          >
-
-            <div className="batch-result-header">
-
-              <div className="batch-title">
-
-                {/* <div className="batch-avatar">
+      {Object.entries(groupedResults).map(([batch, students]) => (
+        <div key={batch} className="batch-result-card">
+          <div className="batch-result-header">
+            <div className="batch-title">
+              {/* <div className="batch-avatar">
 
                   {batch.charAt(0)}
 
                 </div> */}
 
-                <div>
+              <div>
+                <h2>{batch}</h2>
 
-                  <h2>{batch}</h2>
-
-                  <span>
-                    {students.length} Students
-                  </span>
-
-                </div>
-
+                <span>{students.length} Students</span>
               </div>
-
             </div>
+          </div>
 
-            {students.map((student) => (
-
-              <div
-                key={student.id}
-                className="student-result-row"
-              >
-
-                <div className="student-left">
-
-                  <div className="student-circle">
-
-                    {student.studentName.charAt(0)}
-
-                  </div>
-
-                  <div>
-
-                    <h3>
-                      {student.studentName}
-                    </h3>
-
-                    <p>
-                      <Mail size={14} />
-                      {student.studentEmail}
-                    </p>
-
-                  </div>
-
+          {students.map((student) => (
+            <div key={student.id} className="student-result-row">
+              <div className="student-left">
+                <div className="student-circle">
+                  {student.studentName.charAt(0)}
                 </div>
 
-                <div className="student-middle">
+                <div>
+                  <h3>{student.studentName}</h3>
 
-                  <BookOpen size={18} />
-
-                  {student.quizTitle}
-
+                  <p>
+                    <Mail size={14} />
+                    {student.studentEmail}
+                  </p>
                 </div>
-
-                <div className="student-score">
-
-                  {student.score}/{student.total}
-
-                </div>
-
-                <div className="accuracy-chip">
-
-                  {student.accuracy}%
-
-                </div>
-
               </div>
 
-            ))}
+              <div className="student-middle">
+                <BookOpen size={18} />
 
-          </div>
-        )
-      )}
+                {student.quizTitle}
+              </div>
 
+              <div className="student-score">
+                {student.score}/{student.total}
+              </div>
+
+              <div className="accuracy-chip">{student.accuracy}%</div>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
