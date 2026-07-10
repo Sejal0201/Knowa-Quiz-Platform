@@ -511,6 +511,7 @@ const getStudentDashboard = (req, res) => {
       // },
       stats: {
         activeQuiz: activeQuizzes.length,
+        duration: activeQuiz?.duration || 0,
         totalAttempts: studentResults.length,
       },
     });

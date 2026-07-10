@@ -16,10 +16,9 @@ import API from "../api";
 function Dashboard() {
   const navigate = useNavigate();
   const [results, setResults] = useState([]);
-  const [activeQuiz, setActiveQuiz] = useState(null);
-
+  // const [activeQuiz, setActiveQuiz] = useState(null);
+  const [activeQuizzes, setActiveQuizzes] = useState([]);
   const location = useLocation();
-
   const previewMode = location.state?.previewMode || false;
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState({
@@ -44,17 +43,30 @@ function Dashboard() {
       console.log(error);
     }
   };
+  /////////////////////////////////////////////////////////////////////////////
+  // const fetchActiveQuiz = async () => {
+  //   try {
+  //     const res = await API.get("/quiz/active");
+
+  //     setActiveQuiz(res.data.quiz);
+  //   } catch (error) {
+  //     setActiveQuiz(null);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
   const fetchActiveQuiz = async () => {
     try {
       const res = await API.get("/quiz/active");
 
-      setActiveQuiz(res.data.quiz);
+      setActiveQuizzes(res.data.quizzes || []);
     } catch (error) {
-      setActiveQuiz(null);
+      setActiveQuizzes([]);
     } finally {
       setLoading(false);
     }
   };
+
   const fetchDashboardStats = async () => {
     try {
       const email = localStorage.getItem("userEmail");
@@ -66,32 +78,52 @@ function Dashboard() {
       console.log(error);
     }
   };
-  const startQuiz = async () => {
-    try {
-      console.log("Button clicked");
 
+  /////////////////////////////////////
+  // const startQuiz = async () => {
+  //   try {
+  //     console.log("Button clicked");
+
+  //     const email = localStorage.getItem("userEmail");
+
+  //     console.log("Email:", email);
+  //     console.log("Quiz:", activeQuiz);
+
+  //     const res = await API.get(
+  //       `/quiz/check-attempt/${activeQuiz.id}/${email}`,
+  //     );
+
+  //     console.log("API Response:", res.data);
+
+  //     if (res.data.attempted) {
+  //       alert("You have already attempted this quiz");
+  //       return;
+  //     }
+
+  //     navigate(`/quiz/${activeQuiz.id}`);
+  //   } catch (error) {
+  //     console.log("ERROR:", error);
+  //     alert("Unable to start quiz");
+  //   }
+  // };
+  const startQuiz = async (quiz) => {
+    try {
       const email = localStorage.getItem("userEmail");
 
-      console.log("Email:", email);
-      console.log("Quiz:", activeQuiz);
-
-      const res = await API.get(
-        `/quiz/check-attempt/${activeQuiz.id}/${email}`,
-      );
-
-      console.log("API Response:", res.data);
+      const res = await API.get(`/quiz/check-attempt/${quiz.id}/${email}`);
 
       if (res.data.attempted) {
         alert("You have already attempted this quiz");
         return;
       }
 
-      navigate(`/quiz/${activeQuiz.id}`);
+      navigate(`/quiz/${quiz.id}`);
     } catch (error) {
-      console.log("ERROR:", error);
+      console.log(error);
       alert("Unable to start quiz");
     }
   };
+
   return (
     <div className="dashboard-container">
       {/* Sidebar */}
@@ -210,38 +242,30 @@ function Dashboard() {
 
         {loading ? (
           <p>Loading Quiz...</p>
-        ) : activeQuiz ? (
-          // <div className="dashboard-quiz-card">
-          //   <h3>{activeQuiz.title}</h3>
+        ) : activeQuizzes.length > 0 ? (
+          <div className="quiz-grid">
+            {activeQuizzes.map((quiz) => (
+              <div className="quiz-hero-card" key={quiz.id}>
+                <div>
+                  <h2>{quiz.title}</h2>
 
-          //   <p>Duration: {activeQuiz.duration} Minutes</p>
+                  <div className="quiz-info">
+                    <span>
+                      <Clock3 size={16} />
+                      {quiz.duration} Minutes
+                    </span>
+                  </div>
+                </div>
 
-          //   <button onClick={() => navigate(`/quiz/${activeQuiz.id}`)}>
-          //     Start Quiz
-          //   </button>
-          // </div>
-          <div className="quiz-hero-card">
-            <div>
-              {/* <span className="live-badge">ACTIVE QUIZ</span> */}
-
-              <h2>{activeQuiz.title}</h2>
-
-              <div className="quiz-info">
-                <span>
-                  <Clock3 size={16} />
-                  {activeQuiz.duration} Minutes
-                </span>
+                <button
+                  className="start-quiz-btn"
+                  onClick={() => startQuiz(quiz)}
+                >
+                  <PlayCircle size={18} />
+                  Start Quiz
+                </button>
               </div>
-            </div>
-
-            <button
-              className="start-quiz-btn"
-              onClick={startQuiz}
-              // onClick={() => navigate(`/quiz/${activeQuiz.id}`)}
-            >
-              <PlayCircle size={18} />
-              Start Quiz
-            </button>
+            ))}
           </div>
         ) : (
           <div
