@@ -40,5 +40,19 @@
     "email": "SJ@gmail.com",
     "password": "$2b$10$a30kE/PT66u4C4Vc5/iMnuZPZbgbxQyN8alfw/1sqzwRAF08GQ2mK",
     "role": "student"
+  },
+  {
+    "id": 1783622813225,
+    "name": "Sejal",
+    "email": "Sej@gmail.com",
+    "password": "$2b$10$9QNWxFKOV4yeHY9cb69Q2.a6SsuOtg1W3khyFWl5goNWw3CrUSqTK",
+    "role": "student"
+  },
+  {
+    "id": 1783652370457,
+    "name": "Shiva",
+    "email": "Shiva@gmail.com",
+    "password": "$2b$10$0w2Wygnvt8SQ1FBWPs9C6eYl4MgEfB4UUuc.Tt3/vrtqfCVrp9iAG",
+    "role": "student"
   }
 ]

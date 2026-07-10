@@ -242,5 +242,29 @@
     "total": 4,
     "accuracy": "75.00",
     "submittedAt": "2026-07-09T13:03:01.539Z"
+  },
+  {
+    "id": 1783622978850,
+    "quizId": "1781617396876",
+    "quizTitle": "Computer Vision & CNN Quiz ",
+    "studentName": "Sejal",
+    "studentEmail": "Sej@gmail.com",
+    "batch": "AI Crew Nova",
+    "answers": [
+      "As a collection of words",
+      "CNN",
+      "CNNs can automatically learn visual features from images",
+      "To detect important features such as edges, shapes, and patterns in an image",
+      [
+        "Face Recognition in smartphones",
+        "Medical Image Analysis",
+        "Self-Driving Cars",
+        "Image Search and Photo Tagging"
+      ]
+    ],
+    "score": 3,
+    "total": 5,
+    "accuracy": "60.00",
+    "submittedAt": "2026-07-09T18:49:38.851Z"
   }
 ]
