@@ -709,10 +709,38 @@ const getAverageMarks = (req, res) => {
     averages,
   });
 };
+
+const getQuizById = (req, res) => {
+  try {
+    const quizId = Number(req.params.id);
+
+    const quizzes = getQuizzes();
+
+    const quiz = quizzes.find((q) => q.id === quizId);
+
+    if (!quiz) {
+      return res.status(404).json({
+        success: false,
+        message: "Quiz Not Found",
+      });
+    }
+
+    res.json({
+      success: true,
+      quiz,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 module.exports = {
   createQuiz,
   getAllQuizzes,
   deleteQuiz,
+  getQuizById,
   updateQuiz,
   deactivateQuiz,
   getActiveQuiz,

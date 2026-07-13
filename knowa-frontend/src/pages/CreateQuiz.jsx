@@ -13,6 +13,8 @@ function CreateQuiz() {
   const [editingId, setEditingId] = useState(null);
   const [answer, setAnswer] = useState("");
   const [duration, setDuration] = useState(10);
+  const [quizLink, setQuizLink] = useState("");
+  const [createdQuizId, setCreatedQuizId] = useState("");
   // Load saved questions when page opens
   const addOption = () => {
     setOptions([...options, ""]);
@@ -114,6 +116,15 @@ function CreateQuiz() {
         return;
       }
 
+      // const res = await API.post("/quiz/create", {
+      //   title: quizTitle,
+      //   description: `${quizTitle} Assessment`,
+      //   duration: Number(duration),
+      //   questions,
+      // });
+
+      // alert("Quiz Created Successfully!");
+
       const res = await API.post("/quiz/create", {
         title: quizTitle,
         description: `${quizTitle} Assessment`,
@@ -121,8 +132,15 @@ function CreateQuiz() {
         questions,
       });
 
-      alert("Quiz Created Successfully!");
+      // Backend returns the created quiz
+      const quiz = res.data.quiz;
 
+      const shareLink = `${window.location.origin}/quiz/${quiz.id}`;
+
+      setCreatedQuizId(quiz.id);
+      setQuizLink(shareLink);
+
+      alert("Quiz Created Successfully!");
       // localStorage.removeItem("knowaQuiz");
       setQuizTitle("");
       setQuestions([]);
@@ -339,7 +357,7 @@ function CreateQuiz() {
           </button>
         </div>
         <button
-        className="create-quiz-btn"
+          className="create-quiz-btn"
           onClick={createQuiz}
           style={{
             marginTop: "15px",
@@ -348,6 +366,35 @@ function CreateQuiz() {
         >
           Create Quiz
         </button>
+
+        {quizLink && (
+          <div className="share-card">
+            <h3>🎉 Quiz Published Successfully</h3>
+
+            <p>Share this link with students</p>
+
+            <input className="share-link-input" value={quizLink} readOnly />
+
+            <div className="share-buttons">
+              <button
+                className="copy-btn"
+                onClick={() => {
+                  navigator.clipboard.writeText(quizLink);
+                  alert("Quiz link copied!");
+                }}
+              >
+                Copy Link
+              </button>
+
+              <button
+                className="open-btn"
+                onClick={() => window.open(quizLink, "_blank")}
+              >
+                Open Quiz
+              </button>
+            </div>
+          </div>
+        )}
         {/* <h2 className="added-title">Added Questions ({questions.length})</h2> */}
         <div className="builder-card">
           <div className="questions-header">

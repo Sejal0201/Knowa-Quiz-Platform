@@ -25,6 +25,8 @@ const {
 
 router.post("/create", createQuiz);
 
+router.get("/share/:id", getQuizById);
+
 router.get("/all", getAllQuizzes);
 
 router.delete("/delete/:id", deleteQuiz);

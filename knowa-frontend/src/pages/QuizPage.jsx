@@ -18,8 +18,15 @@ function QuizPage() {
   const [answers, setAnswers] = useState({});
   const [timeLeft, setTimeLeft] = useState(300);
   const [quizStarted, setQuizStarted] = useState(false);
-  const [name, setName] = useState(localStorage.getItem("userName") || "");
-  const [email, setEmail] = useState(localStorage.getItem("userEmail") || "");
+  // const [name, setName] = useState(localStorage.getItem("userName") || "");
+  // const [email, setEmail] = useState(localStorage.getItem("userEmail") || "");
+  const [name, setName] = useState(
+    () => localStorage.getItem("userName") || "",
+  );
+  const [email, setEmail] = useState(
+    () => localStorage.getItem("userEmail") || "",
+  );
+
   const [batch, setBatch] = useState("");
   useEffect(() => {
     fetchQuiz();
@@ -42,34 +49,66 @@ function QuizPage() {
   //     navigate("/dashboard");
   //   }
   // };
+
+  ///////////////////////////////////////////////////
+  // const fetchQuiz = async () => {
+  //   try {
+  //     const email = localStorage.getItem("userEmail");
+
+  //     // Check Attempt
+  //     const checkRes = await API.get(`/quiz/check-attempt/${id}/${email}`);
+
+  //     if (checkRes.data.attempted) {
+  //       alert("You have already attempted this quiz");
+
+  //       navigate("/dashboard");
+
+  //       return;
+  //     }
+
+  //     const res = await API.get(`/quiz/start/${id}`);
+
+  //     setQuizData(res.data.quiz);
+
+  //     setQuizQuestions(res.data.quiz.questions);
+
+  //     setTimeLeft(res.data.quiz.duration * 60);
+  //   } catch (error) {
+  //     console.log(error);
+
+  //     alert("Quiz Not Found");
+
+  //     navigate("/dashboard");
+  //   }
+  // };
+
   const fetchQuiz = async () => {
     try {
       const email = localStorage.getItem("userEmail");
 
-      // Check Attempt
-      const checkRes = await API.get(`/quiz/check-attempt/${id}/${email}`);
+      // Only check previous attempt if user is logged in
+      if (email) {
+        const checkRes = await API.get(`/quiz/check-attempt/${id}/${email}`);
 
-      if (checkRes.data.attempted) {
-        alert("You have already attempted this quiz");
-
-        navigate("/dashboard");
-
-        return;
+        if (checkRes.data.attempted) {
+          alert("You have already attempted this quiz");
+          navigate("/dashboard");
+          return;
+        }
       }
 
-      const res = await API.get(`/quiz/start/${id}`);
+      // Get quiz by share link
+      const res = await API.get(`/quiz/share/${id}`);
 
       setQuizData(res.data.quiz);
-
       setQuizQuestions(res.data.quiz.questions);
-
       setTimeLeft(res.data.quiz.duration * 60);
     } catch (error) {
       console.log(error);
 
       alert("Quiz Not Found");
 
-      navigate("/dashboard");
+      navigate("/");
     }
   };
   const submitQuiz = async () => {
@@ -254,7 +293,7 @@ function QuizPage() {
             </button>
 
             {currentQuestion === quizQuestions.length - 1 ? (
-              <button  className="quiz-nav-btn submit-btn"  onClick={submitQuiz}>
+              <button className="quiz-nav-btn submit-btn" onClick={submitQuiz}>
                 Submit Quiz
               </button>
             ) : (
