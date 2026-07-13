@@ -128,9 +128,13 @@ function Dashboard() {
     <div className="dashboard-container">
       {/* Sidebar */}
       <div className="sidebar">
-        <div className="student-brand">
+        {/* <div className="student-brand">
           <BrainCircuit size={32} />
           <span>BetterMind Labs</span>
+        </div> */}
+
+        <div className="logo">
+          <img src={Logo} alt="BetterMind Labs" className="logo-image" />
         </div>
 
         <ul className="sidebar-menu">

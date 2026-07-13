@@ -45,12 +45,10 @@
 //     <div className="login-container">
 //       <div className="login-card">
 
-        
 //           <h1 className="logo">
 //           <BrainCircuit size={60} strokeWidth={2.3} />
 //           <span>BETTERMIND LABS</span>
 //         </h1>
-        
 
 //         <p className="tagline">
 //           Create Your Account
@@ -114,7 +112,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import API from "../api";
-import { BrainCircuit } from "lucide-react";
+// import { BrainCircuit } from "lucide-react";
+import Logo from "../assets/bettermind-logo.png";
 
 const API_URL = "https://knowa-quiz-platform.onrender.com/api";
 
@@ -140,7 +139,7 @@ function Register() {
 
       alert(
         error.response?.data?.message ||
-          "Registration Failed. Please try again."
+          "Registration Failed. Please try again.",
       );
     }
   };
@@ -148,10 +147,13 @@ function Register() {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h1 className="logo">
+        {/* <h1 className="logo">
           <BrainCircuit size={60} strokeWidth={2.3} />
           <span>BETTERMIND LABS</span>
-        </h1>
+        </h1> */}
+        <div className="logo">
+          <img src={Logo} alt="BetterMind Labs" className="logo-image" />
+        </div>
 
         <p className="tagline">Create Your Account</p>
 
@@ -179,10 +181,7 @@ function Register() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button
-          className="login-btn"
-          onClick={handleRegister}
-        >
+        <button className="login-btn" onClick={handleRegister}>
           Create Account
         </button>
 

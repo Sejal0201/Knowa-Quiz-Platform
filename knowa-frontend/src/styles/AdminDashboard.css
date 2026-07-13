@@ -925,3 +925,15 @@ box-shadow:
   font-size: 18px;
   cursor: pointer;
 }
+.logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.logo-image{
+    width:250px;
+    height:auto;
+    object-fit:contain;
+}

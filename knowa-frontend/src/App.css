@@ -4202,3 +4202,16 @@ margin-bottom:50px;
     font-weight:600;
     cursor:pointer;
 }
+
+.logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.logo-image{
+    width:250px;
+    height:auto;
+    object-fit:contain;
+}

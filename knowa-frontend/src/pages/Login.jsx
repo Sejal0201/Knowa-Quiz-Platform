@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BrainCircuit } from "lucide-react";
+// import { BrainCircuit } from "lucide-react";
+import Logo from "../assets/bettermind-logo.png";
 import API from "../api";
 
 function Login() {

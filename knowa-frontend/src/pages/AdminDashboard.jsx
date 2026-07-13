@@ -29,7 +29,8 @@ import {
   Legend,
 } from "recharts";
 
-import { BrainCircuit } from "lucide-react";
+// import { BrainCircuit } from "lucide-react";
+import Logo from "../assets/bettermind-logo.png";
 function AdminDashboard() {
   const navigate = useNavigate();
   const [activities, setActivities] = useState([]);
@@ -120,10 +121,12 @@ function AdminDashboard() {
       <div className="admin-header">
         {/* <div className="brand-section"> */}
         <div className="brand-section">
-          <div className="brand-logo">
+          {/* <div className="brand-logo">
             <BrainCircuit size={34} />
+          </div> */}
+          <div className="logo">
+            <img src={Logo} alt="BetterMind Labs" className="logo-image" />
           </div>
-
           <div>
             <span className="dashboard-tag">ADMIN PANEL</span>
 
