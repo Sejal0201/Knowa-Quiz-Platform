@@ -12,6 +12,7 @@ const {
   viewAccuracy,
   deactivateQuiz,
   getActiveQuiz,
+  getQuizById,
   activateQuiz,
   getResults,
   getDashboardStats,
