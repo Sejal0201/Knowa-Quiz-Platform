@@ -59,7 +59,7 @@ connectDB();
 
 const authRoutes = require("./routes/authRoutes");
 const quizRoutes = require("./routes/quizRoutes");
-
+const batchRoutes = require("./routes/batchRoutes");
 const app = express();
 
 // app.use(
@@ -101,7 +101,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/quiz", quizRoutes);
-
+app.use("/api/batch", batchRoutes);
 app.get("/", (req, res) => {
   res.send("Welcome to BetterMind Labs API");
 });

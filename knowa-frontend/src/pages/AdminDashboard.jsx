@@ -45,8 +45,8 @@ function AdminDashboard() {
 
   useEffect(() => {
     fetchDashboardStats();
+    fetchBatches();
   }, []);
-
   const fetchDashboardStats = async () => {
     try {
       const res = await API.get("/quiz/dashboard-stats");
@@ -58,10 +58,51 @@ function AdminDashboard() {
       const performanceRes = await API.get("/quiz/performance");
       const batchRes = await API.get("/quiz/batch-analytics");
       const recentStudentsRes = await API.get("/quiz/recent-students");
-
+      const [batches, setBatches] = useState([]);
+      const [newBatch, setNewBatch] = useState("");
       setBatchAnalytics(batchRes.data.analytics);
       setPerformance(performanceRes.data.performance);
       setRecentStudents(recentStudentsRes.data.students);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const fetchBatches = async () => {
+    try {
+      const res = await API.get("/batch");
+
+      setBatches(res.data.batches);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const addBatch = async () => {
+    if (!newBatch.trim()) {
+      alert("Enter Batch Name");
+      return;
+    }
+
+    try {
+      await API.post("/batch/create", {
+        name: newBatch,
+      });
+
+      setNewBatch("");
+
+      fetchBatches();
+
+      alert("Batch Added Successfully");
+    } catch (error) {
+      alert(error.response?.data?.message || "Failed to create batch");
+    }
+  };
+  const deleteBatch = async (id) => {
+    if (!window.confirm("Delete this batch?")) return;
+
+    try {
+      await API.delete(`/batch/${id}`);
+
+      fetchBatches();
     } catch (error) {
       console.log(error);
     }
@@ -467,6 +508,36 @@ function AdminDashboard() {
           </div>
         ))}
       </div> */}
+      <div className="batch-management-card">
+        <div className="section-header">
+          <div>
+            <span className="section-badge">Batch Management</span>
+
+            <h2>Manage Training Batches</h2>
+          </div>
+        </div>
+
+        <div className="batch-input-row">
+          <input
+            type="text"
+            placeholder="Enter Batch Name"
+            value={newBatch}
+            onChange={(e) => setNewBatch(e.target.value)}
+          />
+
+          <button onClick={addBatch}>Add Batch</button>
+        </div>
+
+        <div className="batch-list">
+          {batches.map((batch) => (
+            <div key={batch.id} className="batch-chip">
+              <span>{batch.name}</span>
+
+              <button onClick={() => deleteBatch(batch.id)}>✕</button>
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="batch-card">
         <div className="section-header">
           <h2>Batch Analytics</h2>
