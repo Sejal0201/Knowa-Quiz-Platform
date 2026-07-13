@@ -36,6 +36,8 @@ function AdminDashboard() {
   const [batchAnalytics, setBatchAnalytics] = useState([]);
   const [performance, setPerformance] = useState([]);
   const [recentStudents, setRecentStudents] = useState([]);
+  const [batches, setBatches] = useState([]);
+  const [newBatch, setNewBatch] = useState("");
   const [stats, setStats] = useState({
     totalQuizzes: 0,
     activeQuiz: 0,
@@ -58,8 +60,7 @@ function AdminDashboard() {
       const performanceRes = await API.get("/quiz/performance");
       const batchRes = await API.get("/quiz/batch-analytics");
       const recentStudentsRes = await API.get("/quiz/recent-students");
-      const [batches, setBatches] = useState([]);
-      const [newBatch, setNewBatch] = useState("");
+
       setBatchAnalytics(batchRes.data.analytics);
       setPerformance(performanceRes.data.performance);
       setRecentStudents(recentStudentsRes.data.students);
