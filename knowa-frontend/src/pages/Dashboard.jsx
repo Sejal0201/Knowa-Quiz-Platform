@@ -133,10 +133,14 @@ function Dashboard() {
           <BrainCircuit size={32} />
           <span>BetterMind Labs</span>
         </div> */}
-        <div className="student-brand">
+        {/* <div className="student-brand">
           <img src={Logo} alt="BetterMind Labs" className="student-logo" />
+        </div> */}
+        <div className="student-brand">
+          <div className="student-logo-card">
+            <img src={Logo} alt="BetterMind Labs" className="student-logo" />
+          </div>
         </div>
-
         {/* <div className="logo">
           <img src={Logo} alt="BetterMind Labs" className="logo-image" />
         </div> */}
