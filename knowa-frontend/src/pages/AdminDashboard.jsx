@@ -142,7 +142,7 @@ function AdminDashboard() {
 
             <p className="admin-subtitle">Quiz Administration Dashboard</p>
           </div> */}
-          //////////////////////////////////////
+        
           <img src={Logo} alt="BetterMind Labs" className="brand-logo-img" />
           <div>
             <span className="dashboard-tag">ADMIN PANEL</span>
