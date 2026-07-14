@@ -12,6 +12,7 @@ import {
   Clock3,
 } from "lucide-react";
 import API from "../api";
+import Logo from "../assets/Logo.png";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -128,9 +129,12 @@ function Dashboard() {
     <div className="dashboard-container">
       {/* Sidebar */}
       <div className="sidebar">
-        <div className="student-brand">
+        {/* <div className="student-brand">
           <BrainCircuit size={32} />
           <span>BetterMind Labs</span>
+        </div> */}
+        <div className="student-brand">
+          <img src={Logo} alt="BetterMind Labs" className="student-logo" />
         </div>
 
         {/* <div className="logo">
