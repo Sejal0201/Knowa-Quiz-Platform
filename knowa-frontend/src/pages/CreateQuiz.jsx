@@ -265,7 +265,7 @@ function CreateQuiz() {
             </button>
           </div>
 
-          <div className="batch-list">
+          {/* <div className="batch-list">
             {batches.map((batch) => (
               <div className="batch-chip" key={batch.id}>
                 {batch.name}
@@ -275,6 +275,25 @@ function CreateQuiz() {
                   onClick={() => deleteBatch(batch.id)}
                 >
                   ×
+                </button>
+              </div>
+            ))}
+          </div> */}
+
+          <div className="batch-list">
+            {batches.map((batch) => (
+              <div key={batch.id} className="batch-chip">
+                <div className="batch-chip-left">
+                  <span className="batch-icon">🏷</span>
+
+                  <span className="batch-name">{batch.name}</span>
+                </div>
+
+                <button
+                  className="batch-delete"
+                  onClick={() => deleteBatch(batch.id)}
+                >
+                  ✕
                 </button>
               </div>
             ))}
