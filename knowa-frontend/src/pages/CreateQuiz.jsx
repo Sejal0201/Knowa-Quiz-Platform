@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import API from "../api";
+import { X } from "lucide-react";
 function CreateQuiz() {
   const [quizTitle, setQuizTitle] = useState("");
   const [question, setQuestion] = useState("");
@@ -289,11 +290,18 @@ function CreateQuiz() {
                   <span className="batch-name">{batch.name}</span>
                 </div>
 
-                <button
+                {/* <button
                   className="batch-delete"
                   onClick={() => deleteBatch(batch.id)}
                 >
                   ✕
+                </button> */}
+                <button
+                  className="batch-delete"
+                  onClick={() => deleteBatch(batch.id)}
+                  title="Delete Batch"
+                >
+                  <X size={18} strokeWidth={2.8} />
                 </button>
               </div>
             ))}
