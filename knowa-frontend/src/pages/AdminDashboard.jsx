@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../styles/AdminDashboard.css";
+import Logo from "../assets/Logo.png";
 
 import API from "../api";
 import {
