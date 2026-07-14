@@ -530,8 +530,8 @@ function AdminDashboard() {
         ))}
       </div> */}
 
-      {/* Batch maanagement */}
-      <div className="batch-management-card">
+      {/* ////////////Batch maanagement///////////// */}
+      {/* <div className="batch-management-card">
         <div className="section-header">
           <div>
             <span className="section-badge">Batch Management</span>
@@ -560,7 +560,7 @@ function AdminDashboard() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
       <div className="batch-card">
         <div className="section-header">
           <h2>Batch Analytics</h2>
