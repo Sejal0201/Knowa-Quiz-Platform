@@ -280,32 +280,16 @@ function CreateQuiz() {
               </div>
             ))}
           </div> */}
-
           <div className="batch-list">
             {batches.map((batch) => (
               <div key={batch.id} className="batch-chip">
-                <div className="batch-chip-left">
-                  <span className="batch-icon">🏷</span>
+                <span>{batch.name}</span>
 
-                  <span className="batch-name">{batch.name}</span>
-                </div>
-
-                {/* <button
-                  className="batch-delete"
-                  onClick={() => deleteBatch(batch.id)}
-                >
-                  ✕
-                </button> */}
-                <button
-                  className="batch-delete"
-                  onClick={() => deleteBatch(batch.id)}
-                  title="Delete Batch"
-                >
-                  <X size={18} strokeWidth={2.8} />
-                </button>
+                <button onClick={() => deleteBatch(batch.id)}>✕</button>
               </div>
             ))}
           </div>
+          
         </div>
         {/* <input type="file" accept=".csv" onChange={handleCSVUpload} /> */}
 
