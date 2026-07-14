@@ -24,7 +24,7 @@ function ResultPage() {
 
         <h1>Quiz Completed!</h1>
 
-        <p className="result-subtitle">BETTERMIND LABS Quiz Platform</p>
+        <p className="result-subtitle">BetterMind Labs Quiz Platform</p>
 
         <div
           className="score-circle"
