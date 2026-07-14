@@ -257,7 +257,7 @@ function CreateQuiz() {
               onChange={(e) => setBatchName(e.target.value)}
             />
 
-            <button className="batch-add-btn" onClick={addBatch}>
+            <button type="button" className="batch-add-btn" onClick={addBatch}>
               Add Batch
             </button>
           </div>

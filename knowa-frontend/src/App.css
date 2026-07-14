@@ -6,14 +6,14 @@
   background: linear-gradient(135deg, #2563eb, #1e40af);
 }
 
-/* .login-card {
+ .login-card { 
   width: 420px;
   background: white;
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   text-align: center;
-} */
+} 
 
 .login-card {
   width: 450px;
@@ -4356,3 +4356,32 @@ margin-bottom:50px;
     font-size:24px;
     cursor:pointer;
 }
+
+.batch-input-row{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.batch-input-row input{
+    flex:1;
+    margin:0 !important;
+}
+
+.batch-add-btn{
+    width:140px !important;
+    min-width:140px !important;
+    max-width:140px !important;
+
+    height:58px;
+
+    flex:0 0 140px !important;
+
+    margin:0 !important;
+
+    background:#006bff;
+    color:white;
+    border:none;
+    border-radius:18px;
+}
+
