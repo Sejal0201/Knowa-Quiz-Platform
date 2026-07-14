@@ -737,20 +737,15 @@ const getQuizById = (req, res) => {
   }
 };
 
-const Result = require("../models/result");
+// const Result = require("../models/result");
 
-const getGroupedResults = async (req, res) => {
+const getGroupedResults = (req, res) => {
   try {
-    const results = await Result.find().sort({
-      batch: 1,
-      quizTitle: 1,
-      studentName: 1,
-    });
+    const results = getResultsData();
 
     const grouped = {};
 
     results.forEach((result) => {
-      // Batch
       if (!grouped[result.batch]) {
         grouped[result.batch] = {
           batch: result.batch,
@@ -758,7 +753,6 @@ const getGroupedResults = async (req, res) => {
         };
       }
 
-      // Quiz
       if (!grouped[result.batch].quizzes[result.quizTitle]) {
         grouped[result.batch].quizzes[result.quizTitle] = {
           quizTitle: result.quizTitle,
@@ -770,8 +764,9 @@ const getGroupedResults = async (req, res) => {
         studentName: result.studentName,
         studentEmail: result.studentEmail,
         score: result.score,
-        totalQuestions: result.totalQuestions,
+        total: result.total,
         accuracy: result.accuracy,
+        submittedAt: result.submittedAt,
       });
     });
 
@@ -784,13 +779,10 @@ const getGroupedResults = async (req, res) => {
       success: true,
       data: finalData,
     });
-
-  } catch (err) {
-    console.log(err);
-
+  } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Server Error",
+      message: error.message,
     });
   }
 };
