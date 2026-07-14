@@ -4296,15 +4296,18 @@ margin-bottom:50px;
 .student-brand{
     display:flex;
     justify-content:center;
-    align-items:center;
-    padding:30px 0 35px;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    margin-bottom:30px;
+    padding:28px 0 36px;
+}
+
+.student-logo-card{
+    background:#fff;
+    padding:14px 18px;
+    border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
 }
 
 .student-logo{
-    width:180px;
+    width:170px;
     height:auto;
-    object-fit:contain;
-    user-select:none;
+    display:block;
 }
