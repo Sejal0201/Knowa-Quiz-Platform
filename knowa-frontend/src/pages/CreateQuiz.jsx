@@ -81,6 +81,9 @@ function CreateQuiz() {
       console.log(err);
     }
   };
+  useEffect(() => {
+    fetchBatches();
+  }, []);
   const addBatch = async () => {
     if (!batchName.trim()) {
       alert("Enter Batch Name");
@@ -88,7 +91,7 @@ function CreateQuiz() {
     }
 
     try {
-      await API.post("/batch", {
+      await API.post("/batch/create", {
         name: batchName,
       });
 
@@ -264,12 +267,12 @@ function CreateQuiz() {
 
           <div className="batch-list">
             {batches.map((batch) => (
-              <div className="batch-chip" key={batch._id}>
+              <div className="batch-chip" key={batch.id}>
                 {batch.name}
 
                 <button
                   className="batch-delete"
-                  onClick={() => deleteBatch(batch._id)}
+                  onClick={() => deleteBatch(batch.id)}
                 >
                   ×
                 </button>
