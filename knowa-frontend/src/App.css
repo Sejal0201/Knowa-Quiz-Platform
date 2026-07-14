@@ -4649,3 +4649,75 @@ box-shadow:0 15px 30px rgba(253,171,35,.25);
 .quiz-item:hover {
   background: #eef4ff;
 }
+
+
+.quiz-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 24px;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    margin-bottom:12px;
+}
+
+.quiz-item:hover{
+    background:#eef4ff;
+}
+
+.quiz-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    font-weight:600;
+}
+
+.quiz-right{
+    color:#2563eb;
+    font-weight:600;
+}
+
+.students-table{
+    margin:15px 0 25px;
+
+    background:white;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+
+.students-table table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.students-table th{
+    background:#2563eb;
+    color:white;
+
+    padding:16px;
+
+    text-align:left;
+}
+
+.students-table td{
+    padding:16px;
+
+    border-bottom:1px solid #edf2f7;
+}
+
+.students-table tr:hover{
+    background:#f8fafc;
+}

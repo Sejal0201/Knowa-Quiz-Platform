@@ -179,11 +179,70 @@ function AdminResults() {
 
           {openBatch === batch.batch && (
             <div className="quiz-list">
-              {batch.quizzes.map((quiz) => (
+              {/* {batch.quizzes.map((quiz) => (
                 <div key={quiz.quizTitle} className="quiz-item">
                   <BookOpen size={18} />
 
                   {quiz.quizTitle}
+                </div>
+              ))} */}
+
+              {batch.quizzes.map((quiz) => (
+                <div key={quiz.quizTitle}>
+                  <div
+                    className="quiz-item"
+                    onClick={() =>
+                      setOpenQuiz(
+                        openQuiz === `${batch.batch}-${quiz.quizTitle}`
+                          ? null
+                          : `${batch.batch}-${quiz.quizTitle}`,
+                      )
+                    }
+                  >
+                    <div className="quiz-left">
+                      <BookOpen size={18} />
+
+                      <span>{quiz.quizTitle}</span>
+                    </div>
+
+                    <div className="quiz-right">
+                      <span>{quiz.students.length} Attempts</span>
+                    </div>
+                  </div>
+
+                  {openQuiz === `${batch.batch}-${quiz.quizTitle}` && (
+                    <div className="students-table">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Score</th>
+
+                            <th>Accuracy</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          {quiz.students.map((student) => (
+                            <tr key={student.studentEmail}>
+                              <td>{student.studentName}</td>
+
+                              <td>{student.studentEmail}</td>
+
+                              <td>
+                                {student.score}/{student.total}
+                              </td>
+
+                              <td>{student.accuracy}%</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
