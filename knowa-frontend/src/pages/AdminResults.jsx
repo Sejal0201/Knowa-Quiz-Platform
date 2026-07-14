@@ -105,7 +105,9 @@ import { Users, Mail, BookOpen, BarChart3 } from "lucide-react";
 import "../styles/AdminResults.css";
 
 function AdminResults() {
-  const [results, setResults] = useState([]);
+  const [groupedResults, setGroupedResults] = useState([]);
+  const [openBatch, setOpenBatch] = useState(null);
+  const [openQuiz, setOpenQuiz] = useState(null);
 
   // useEffect(() => {
   //   fetchResults();
@@ -121,25 +123,34 @@ function AdminResults() {
     return () => clearInterval(interval);
   }, []);
 
+  // const fetchResults = async () => {
+  //   try {
+  //     const res = await API.get("/quiz/results");
+  //     setResults(res.data.results);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
   const fetchResults = async () => {
     try {
-      const res = await API.get("/quiz/results");
-      setResults(res.data.results);
-    } catch (err) {
-      console.log(err);
+      const res = await API.get("/quiz/grouped-results");
+
+      setGroupedResults(res.data.data);
+    } catch (error) {
+      console.log(error);
     }
   };
-
   // Group Results by Batch
-  const groupedResults = results.reduce((acc, result) => {
-    if (!acc[result.batch]) {
-      acc[result.batch] = [];
-    }
+  // const groupedResults = results.reduce((acc, result) => {
+  //   if (!acc[result.batch]) {
+  //     acc[result.batch] = [];
+  //   }
 
-    acc[result.batch].push(result);
+  //   acc[result.batch].push(result);
 
-    return acc;
-  }, {});
+  //   return acc;
+  // }, {});
 
   return (
     <div className="results-page">
@@ -153,54 +164,30 @@ function AdminResults() {
         </div>
       </div>
 
-      {Object.entries(groupedResults).map(([batch, students]) => (
-        <div key={batch} className="batch-result-card">
-          <div className="batch-result-header">
-            <div className="batch-title">
-              {/* <div className="batch-avatar">
+      {groupedResults.map((batch) => (
+        <div key={batch.batch} className="batch-result-card">
+          <div
+            className="batch-header"
+            onClick={() =>
+              setOpenBatch(openBatch === batch.batch ? null : batch.batch)
+            }
+          >
+            <h2>{batch.batch}</h2>
 
-                  {batch.charAt(0)}
-
-                </div> */}
-
-              <div>
-                <h2>{batch}</h2>
-
-                <span>{students.length} Students</span>
-              </div>
-            </div>
+            <span>{batch.quizzes.length} Quizzes</span>
           </div>
 
-          {students.map((student) => (
-            <div key={student.id} className="student-result-row">
-              <div className="student-left">
-                <div className="student-circle">
-                  {student.studentName.charAt(0)}
+          {openBatch === batch.batch && (
+            <div className="quiz-list">
+              {batch.quizzes.map((quiz) => (
+                <div key={quiz.quizTitle} className="quiz-item">
+                  <BookOpen size={18} />
+
+                  {quiz.quizTitle}
                 </div>
-
-                <div>
-                  <h3>{student.studentName}</h3>
-
-                  <p>
-                    <Mail size={14} />
-                    {student.studentEmail}
-                  </p>
-                </div>
-              </div>
-
-              <div className="student-middle">
-                <BookOpen size={18} />
-
-                {student.quizTitle}
-              </div>
-
-              <div className="student-score">
-                {student.score}/{student.total}
-              </div>
-
-              <div className="accuracy-chip">{student.accuracy}%</div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
       ))}
     </div>
