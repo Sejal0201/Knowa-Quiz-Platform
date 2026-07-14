@@ -4604,3 +4604,48 @@ box-shadow:0 15px 30px rgba(253,171,35,.25);
   align-items: center;
   justify-content: center;
 }
+
+.batch-result-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.batch-header {
+  background: #0f172a;
+  color: white;
+  padding: 22px 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.batch-header h2 {
+  margin: 0;
+}
+
+.quiz-list {
+  padding: 20px;
+}
+
+.quiz-item {
+  padding: 18px 24px;
+  margin-bottom: 12px;
+
+  border-radius: 14px;
+
+  background: #f8fafc;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.quiz-item:hover {
+  background: #eef4ff;
+}
