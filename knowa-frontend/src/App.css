@@ -4229,3 +4229,66 @@ margin-bottom:50px;
     object-fit:contain;
     user-select:none;
 }
+
+.quiz-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#ffffff;
+    padding:18px 32px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+    border-bottom:1px solid #edf2f7;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.quiz-brand{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.quiz-logo{
+    width:170px;
+    height:auto;
+    object-fit:contain;
+    user-select:none;
+}
+
+.quiz-brand h2{
+    margin:0;
+    font-size:24px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+.quiz-brand p{
+    margin-top:4px;
+    color:#64748b;
+    font-size:15px;
+}
+
+.timer-card{
+    min-width:180px;
+    text-align:center;
+    padding:14px 22px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:#fff;
+    box-shadow:0 10px 25px rgba(37,99,235,.3);
+}
+
+.timer-title{
+    display:block;
+    font-size:12px;
+    letter-spacing:1px;
+    opacity:.9;
+    margin-bottom:6px;
+}
+
+.timer-card h2{
+    margin:0;
+    font-size:32px;
+    font-weight:700;
+}
