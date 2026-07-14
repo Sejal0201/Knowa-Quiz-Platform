@@ -121,7 +121,7 @@ function AdminDashboard() {
       <div className="admin-header">
         {/* <div className="brand-section"> */}
         <div className="brand-section">
-          <div className="brand-logo">
+          {/* <div className="brand-logo">
             <BrainCircuit size={34} />
           </div>
 
@@ -129,6 +129,16 @@ function AdminDashboard() {
             <span className="dashboard-tag">ADMIN PANEL</span>
 
             <h1 className="admin-title">BetterMind Labs</h1>
+
+            <p className="admin-subtitle">Quiz Administration Dashboard</p>
+          </div> */}
+
+          <div className="brand-logo">
+            <img src={Logo} alt="BetterMind Labs" className="admin-logo" />
+          </div>
+
+          <div>
+            <span className="dashboard-tag">ADMIN PANEL</span>
 
             <p className="admin-subtitle">Quiz Administration Dashboard</p>
           </div>

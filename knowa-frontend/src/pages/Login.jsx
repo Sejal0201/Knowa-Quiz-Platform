@@ -78,11 +78,10 @@
 
 // export default Login;
 
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BrainCircuit } from "lucide-react";
-// import Logo from "../assets/bettermind-logo.png";
+import Logo from "../assets/Logo.png";
 import API from "../api";
 
 function Login() {
@@ -117,20 +116,21 @@ function Login() {
     } catch (error) {
       console.error(error);
 
-      alert(
-        error.response?.data?.message ||
-          "Login Failed"
-      );
+      alert(error.response?.data?.message || "Login Failed");
     }
   };
 
   return (
     <div className="login-container">
       <div className="login-card">
-        <h1 className="logo">
+        {/* <h1 className="logo">
           <BrainCircuit size={60} strokeWidth={2.3} />
           <span>BETTERMIND LABS</span>
-        </h1>
+        </h1> */}
+
+        <div className="logo">
+          <img src={Logo} alt="BetterMind Labs" className="brand-logo-img" />
+        </div>
 
         <p className="tagline">Test What You Know</p>
 

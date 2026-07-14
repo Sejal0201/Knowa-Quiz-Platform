@@ -4215,3 +4215,17 @@ margin-bottom:50px;
     height:auto;
     object-fit:contain;
 } */
+
+.logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.brand-logo-img{
+    width:260px;
+    height:auto;
+    object-fit:contain;
+    user-select:none;
+}

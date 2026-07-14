@@ -112,8 +112,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import API from "../api";
-import { BrainCircuit } from "lucide-react";
-// import Logo from "../assets/bettermind-logo.png";
+// import { BrainCircuit } from "lucide-react";
+import Logo from "../assets/Logo.png";
 
 const API_URL = "https://knowa-quiz-platform.onrender.com/api";
 
@@ -147,10 +147,14 @@ function Register() {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h1 className="logo">
+        {/* <h1 className="logo">
           <BrainCircuit size={60} strokeWidth={2.3} />
           <span>BETTERMIND LABS</span>
-        </h1>
+        </h1> */}
+
+        <div className="logo">
+          <img src={Logo} alt="BetterMind Labs" className="brand-logo-img" />
+        </div>
         {/* <div className="logo">
           <img src={Logo} alt="BetterMind Labs" className="logo-image" />
         </div> */}
