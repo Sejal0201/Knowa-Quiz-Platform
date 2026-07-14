@@ -736,10 +736,69 @@ const getQuizById = (req, res) => {
     });
   }
 };
+
+const Result = require("../models/result");
+
+const getGroupedResults = async (req, res) => {
+  try {
+    const results = await Result.find().sort({
+      batch: 1,
+      quizTitle: 1,
+      studentName: 1,
+    });
+
+    const grouped = {};
+
+    results.forEach((result) => {
+      // Batch
+      if (!grouped[result.batch]) {
+        grouped[result.batch] = {
+          batch: result.batch,
+          quizzes: {},
+        };
+      }
+
+      // Quiz
+      if (!grouped[result.batch].quizzes[result.quizTitle]) {
+        grouped[result.batch].quizzes[result.quizTitle] = {
+          quizTitle: result.quizTitle,
+          students: [],
+        };
+      }
+
+      grouped[result.batch].quizzes[result.quizTitle].students.push({
+        studentName: result.studentName,
+        studentEmail: result.studentEmail,
+        score: result.score,
+        totalQuestions: result.totalQuestions,
+        accuracy: result.accuracy,
+      });
+    });
+
+    const finalData = Object.values(grouped).map((batch) => ({
+      batch: batch.batch,
+      quizzes: Object.values(batch.quizzes),
+    }));
+
+    res.json({
+      success: true,
+      data: finalData,
+    });
+
+  } catch (err) {
+    console.log(err);
+
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  }
+};
 module.exports = {
   createQuiz,
   getAllQuizzes,
   deleteQuiz,
+  getGroupedResults,
   getQuizById,
   updateQuiz,
   deactivateQuiz,

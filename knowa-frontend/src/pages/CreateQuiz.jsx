@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import API from "../api";
 import { X } from "lucide-react";
+import { CheckSquare } from "lucide-react";
 function CreateQuiz() {
   const [quizTitle, setQuizTitle] = useState("");
   const [question, setQuestion] = useState("");
@@ -285,11 +286,17 @@ function CreateQuiz() {
               <div key={batch.id} className="batch-chip">
                 <span>{batch.name}</span>
 
-                <button onClick={() => deleteBatch(batch.id)}>✕</button>
+                {/* <button onClick={() => deleteBatch(batch.id)}>✕</button> */}
+                <button
+                  className="batch-check"
+                  onClick={() => deleteBatch(batch.id)}
+                  title="Delete Batch"
+                >
+                  <CheckSquare size={20} strokeWidth={2.2} />
+                </button>
               </div>
             ))}
           </div>
-          
         </div>
         {/* <input type="file" accept=".csv" onChange={handleCSVUpload} /> */}
 

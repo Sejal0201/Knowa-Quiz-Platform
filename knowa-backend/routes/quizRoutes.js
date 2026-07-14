@@ -21,6 +21,7 @@ const {
   getStudentResults,
   getBatchAnalytics,
   getRecentStudents,
+  getGroupedResults,
   checkAttempt,
 } = require("../controllers/quizController");
 
@@ -39,6 +40,8 @@ router.get("/start/:id", startQuiz);
 router.post("/submit", submitQuiz);
 
 router.get("/accuracy/:id", viewAccuracy);
+
+router.get("/grouped-results", getGroupedResults);
 
 router.get("/active", getActiveQuiz);
 
