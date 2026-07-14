@@ -4306,3 +4306,20 @@ box-shadow:0 15px 30px rgba(253,171,35,.25);
   font-size: 24px;
   cursor: pointer;
 }
+.batch-input-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.batch-input-row input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+.batch-add-btn {
+  width: 170px;
+  flex-shrink: 0;
+}
