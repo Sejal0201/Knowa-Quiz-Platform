@@ -529,6 +529,8 @@ function AdminDashboard() {
           </div>
         ))}
       </div> */}
+
+      {/* Batch maanagement */}
       <div className="batch-management-card">
         <div className="section-header">
           <div>
