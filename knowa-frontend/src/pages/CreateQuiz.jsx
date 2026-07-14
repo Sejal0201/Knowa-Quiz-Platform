@@ -15,6 +15,9 @@ function CreateQuiz() {
   const [duration, setDuration] = useState(10);
   const [quizLink, setQuizLink] = useState("");
   const [createdQuizId, setCreatedQuizId] = useState("");
+
+  const [batchName, setBatchName] = useState("");
+  const [batches, setBatches] = useState([]);
   // Load saved questions when page opens
   const addOption = () => {
     setOptions([...options, ""]);
@@ -69,7 +72,42 @@ function CreateQuiz() {
     setDuration(10);
     alert("Question Added Successfully!");
   };
+  const fetchBatches = async () => {
+    try {
+      const res = await API.get("/batch");
 
+      setBatches(res.data.batches);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const addBatch = async () => {
+    if (!batchName.trim()) {
+      alert("Enter Batch Name");
+      return;
+    }
+
+    try {
+      await API.post("/batch", {
+        name: batchName,
+      });
+
+      setBatchName("");
+
+      fetchBatches();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const deleteBatch = async (id) => {
+    try {
+      await API.delete(`/batch/${id}`);
+
+      fetchBatches();
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const deleteQuestion = (id) => {
     const updatedQuestions = questions.filter((q) => q.id !== id);
 
@@ -206,6 +244,39 @@ function CreateQuiz() {
           </select>
         </div>
 
+        <div className="builder-card">
+          <span className="section-badge">Batch Management</span>
+
+          <h2 style={{ marginTop: "20px" }}>Manage Training Batches</h2>
+
+          <div className="batch-input-row">
+            <input
+              type="text"
+              placeholder="Enter Batch Name"
+              value={batchName}
+              onChange={(e) => setBatchName(e.target.value)}
+            />
+
+            <button className="batch-add-btn" onClick={addBatch}>
+              Add Batch
+            </button>
+          </div>
+
+          <div className="batch-list">
+            {batches.map((batch) => (
+              <div className="batch-chip" key={batch._id}>
+                {batch.name}
+
+                <button
+                  className="batch-delete"
+                  onClick={() => deleteBatch(batch._id)}
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
         {/* <input type="file" accept=".csv" onChange={handleCSVUpload} /> */}
 
         {/* <input type="file" accept=".csv" onChange={handleCSVUpload} /> */}
